@@ -12,10 +12,19 @@ public class TicTacToeApplication {
         while (doYouWantToPlay) {
             //Setting up tokens and AI
             System.out.println("Welcome to Tic Tac Toe! You are about to play a game!");
-            System.out.println("Enter a single character that will rep you on the board");
-            char playerToken = sc.next().charAt(0);
+            System.out.println("Choose either \"X\" or \"O\"");
+            if(sc.next().charAt(0).toUpperCase() != "X" || sc.next().charAt(0).toUpperCase() != "O") {
+                System.out.println("Choose either \"X\" or \"O\"");
+            } else {
+                char playerToken = sc.next().charAt(0).toUpperCase();
+            }
+
             System.out.println("Enter a Character to rep your opponent on the board");
-            char oppToken = sc.next().charAt(0);
+            if(playerToken == "X") {
+                char oppToken = "O";
+            } else {
+                char oppToken = "X";
+            }
 
             TicTacToe game = new TicTacToe(playerToken, oppToken);
             AI ai = new AI();
